@@ -31,3 +31,20 @@ let server = app.listen(8080, () => {
     console.log('Listening', server.address().port)
 })
 
+function getNLUInstance(){
+    let api_key=process.env.api_key;
+    let api_url=process.env.api_url;
+
+    const NaturalLanguangeUnderstandingV1=require('ibm-watson/natural-language-understanding/v1');
+    const { IamAuthenticator } = require('inm-watson/auth');
+
+    const NaturalLanguangeUnderstanding= new NaturalLanguangeUnderstandingV1({
+        version:'2021-04-19',
+        authenticator: new IamAuthenticator({
+            apikey=api_key,
+        }),
+        serviceUrl= api_url,
+    });
+    return NaturalLanguangeUnderstanding;
+}
+
