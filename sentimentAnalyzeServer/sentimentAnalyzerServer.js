@@ -32,8 +32,8 @@ let server = app.listen(8080, () => {
 })
 
 function getNLUInstance(){
-    let api_key=process.env.api_key;
-    let api_url=process.env.api_url;
+    let api_key=process.env.API_KEY;
+    let api_url=process.env.API_URL;
 
     const NaturalLanguangeUnderstandingV1=require('ibm-watson/natural-language-understanding/v1');
     const { IamAuthenticator } = require('inm-watson/auth');
